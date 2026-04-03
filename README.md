@@ -1,16 +1,37 @@
-# React + Vite
+# Caju Form Front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend React com Vite para cadastro e edicao de usuarios.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- `npm run dev`: ambiente de desenvolvimento
+- `npm run build`: build de producao
+- `npm run lint`: validacao com ESLint
+- `npm run preview`: sobe a build localmente
 
-## React Compiler
+## Variaveis de ambiente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `VITE_API_BASE_URL`: URL base da API. Em desenvolvimento, quando nao informada, o frontend usa requisicoes relativas.
 
-## Expanding the ESLint configuration
+## Estrutura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+  app/                       # composicao principal da aplicacao
+  features/registration/     # fluxo de cadastro
+    components/              # componentes de UI do fluxo
+    constants/               # listas e constantes do dominio
+    hooks/                   # gerenciamento de estado do fluxo
+    services/                # chamadas HTTP
+    utils/                   # formatacao, validacao e mapeamentos
+  shared/
+    config/                  # configuracoes compartilhadas
+    styles/                  # estilos globais
+```
+
+## Convencoes adotadas
+
+- regras de negocio fora dos componentes
+- estado do fluxo centralizado em hook com reducer
+- componentes menores e focados em responsabilidade unica
+- nomes de classes e arquivos orientados ao dominio
